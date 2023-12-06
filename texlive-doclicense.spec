@@ -1,6 +1,6 @@
 Name:		texlive-doclicense
-Version:	63340
-Release:	2
+Version:	68441
+Release:	1
 Summary:	Support for putting documents under a license
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/doclicense

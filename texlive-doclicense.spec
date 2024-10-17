@@ -3,7 +3,7 @@ Version:	68441
 Release:	1
 Summary:	Support for putting documents under a license
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/doclicense
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/doclicense
 License:	cc0 lppl1.3c
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/doclicense.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/doclicense.doc.r%{version}.tar.xz

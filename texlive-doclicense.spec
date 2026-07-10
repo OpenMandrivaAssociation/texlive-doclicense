@@ -1,42 +1,26 @@
-Name:		texlive-doclicense
-Version:	68441
-Release:	1
+%global tl_name doclicense
+%global tl_revision 77682
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	3.3.0
+Release:	%{tl_revision}.1
 Summary:	Support for putting documents under a license
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/doclicense
 License:	cc0 lppl1.3c
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/doclicense.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/doclicense.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/doclicense.source.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/doclicense.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/doclicense.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/doclicense.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-This package allows you to put your document under a license
-and include a link to read about the license or include an icon
-or image of the license. Currently, only Creative Commons is
-supported, but this package is designed to handle all kinds of
-licenses.
+This package allows you to put your document under a license and include
+a link to read about the license or include an icon or image of the
+license. Currently, only Creative Commons is supported, but this package
+is designed to handle all kinds of licenses.
 
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%doc %{_texmfdistdir}/source/latex/doclicense
-%{_texmfdistdir}/tex/latex/doclicense
-%doc %{_texmfdistdir}/doc/latex/doclicense
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
